@@ -26,7 +26,12 @@ This tool helps recruiter to manage information realted to candidates.
 
     `./client/.env`
     ```
-    
+    REACT_APP_API_URL=<LINK_TO_SERVER>
+    ```
+
+4. Run the application.
+    ```
+    npm start ./client && node backend/server.js
     ```
 
 
