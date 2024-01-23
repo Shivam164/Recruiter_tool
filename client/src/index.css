@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.card {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.5s ease;
+}
+
+.expanded {
+  height: auto;
+}
