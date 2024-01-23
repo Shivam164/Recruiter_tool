@@ -16,11 +16,8 @@ exports.candidateAlreadyExistOrNot = async (emailId) => {
             });
         });
 
-        console.log(queryResult);
         return queryResult;
     } catch (error) {
-        // Handle error
-        console.error('Error:', error);
         throw error;
     }
 }

@@ -84,7 +84,7 @@ exports.deleteCandidate = async function(req, res, next){
             })
 
         }else{
-            res.status(400).json({"message": "Bad requeset, No"});
+            res.status(400).json({"message": "Bad requeset"});
         }
 
     }catch(err){
@@ -94,7 +94,6 @@ exports.deleteCandidate = async function(req, res, next){
 
 exports.getSingleCandidate = function(req, res, next){
     const applicantID = req.query.id;
-    console.log(req.body);
     try{
         const tableName = `${process.env.CANDIDATE_TABLE_NAME}`;
         const getCandidateQuery = `SELECT * FROM ${tableName} WHERE ApplicantID = '${applicantID}'`;
