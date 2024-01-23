@@ -7,7 +7,7 @@ https://recruiter-tool-rzg2.onrender.com
 
 ## Steps to deploy the application
 
-1. Start with creating account on [Render](https://render.com) using GitHub. Make sure the GitHub account that is being used on the Render platform, it should have the repository of the application we are going to deploy.
+1. Start with creating account on [Render](https://render.com) using GitHub. Make sure the GitHub account that is being used has the repository of the application we are going to deploy.
 
     > **Note:** We First need to deploy backend part of the application.
 
