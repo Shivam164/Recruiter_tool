@@ -7,9 +7,8 @@ import { useNavigate } from 'react-router-dom';
 
 export function Row({Name, Email, Phone, ReactJS, NodeJS, Score, Current_Status, Expected_Salary, UpdateTable, ApplicantID}) {
 
-  const [error, setError] = useState("");
   const [isVisible, setIsVisible] = useState(false);
-  const { isNotificationVisible, setIsNotificationVisible, setNotificationMessage, setNotificationColor} = useContext(NotificationContext);
+  const { setIsNotificationVisible, setNotificationMessage, setNotificationColor} = useContext(NotificationContext);
   const history = useNavigate();
 
   const handleDelete = async () => {
@@ -22,7 +21,9 @@ export function Row({Name, Email, Phone, ReactJS, NodeJS, Score, Current_Status,
         setNotificationMessage("Deleted Successfully!!");
         setIsNotificationVisible(true);
       }catch(error){
-        setError("Failed to delete!");
+        setNotificationColor("bg-red-500");
+        setNotificationMessage("Failed to delete!");
+        setIsNotificationVisible(true);
       }
     }
   }
@@ -59,9 +60,6 @@ export function Row({Name, Email, Phone, ReactJS, NodeJS, Score, Current_Status,
             <div className="text-gray-700 text-base flex justify-between"><p>Score</p> <p>{Score}</p></div>
             <div className="text-gray-700 text-base flex justify-between"><p>Current Status</p> <StatusPill value = {Current_Status}/></div>
             <div className="text-gray-700 text-base flex justify-between"><p>Expected Salary</p> <p>{Expected_Salary}</p></div>
-          </div>
-          <div className="px-6 py-4">
-            {/* Additional details or actions can be added here */}
           </div>
         </div>
       }

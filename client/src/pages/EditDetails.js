@@ -25,9 +25,7 @@ const EditDetails = () => {
 
   const fetchSingleCandidateData = async () => {
     try{
-      console.log("id", id);
       const { candidate } = await getSingleCandidate(id);
-      console.log(candidate);
       setFormData({
         name: `${candidate[0].Name}`,
         emailId: `${candidate[0].Email}`,
@@ -38,8 +36,9 @@ const EditDetails = () => {
         expected_salary: `${candidate[0].Expected_Salary}`,
       });
     }catch(err){
-      // setError(err);
-      console.log(err);
+      setNotificationMessage("Failed to fetch data");
+      setNotificationColor("bg-red-500");
+      setIsNotificationVisible(true);
     }
   }
 
@@ -57,14 +56,15 @@ const EditDetails = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-        console.log('Form data submitted:', formData);
-        const response = await updateCandidate(formData);
-        setNotificationColor("bg-green-500");
-        setNotificationMessage("Details Edited Successfully!!");
-        setIsNotificationVisible(true);
-        history('/');
+      const response = await updateCandidate(formData);
+      setNotificationColor("bg-green-500");
+      setNotificationMessage("Details Edited Successfully!!");
+      setIsNotificationVisible(true);
+      history('/');
     }catch(error){
-        console.log(error);
+      setNotificationMessage("Submission Failed");
+      setNotificationColor("bg-red-500");
+      setIsNotificationVisible(true);
     }
   };
 

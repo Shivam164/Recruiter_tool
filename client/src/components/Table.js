@@ -10,7 +10,6 @@ function Table() {
   const fetchAndUpdateCandidatesData = async () => {
     try{
       const { candidates } = await getAllCandidates();
-      console.log(candidates);
       setAllCandidates(candidates);
     }catch(err){
       setError(err);

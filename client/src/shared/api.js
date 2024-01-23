@@ -3,11 +3,8 @@ const apiUrl = process.env.REACT_APP_API_URL;
 
 export const getAllCandidates = async () => {
 
-  console.log(apiUrl);
-
   try{
       const { data } = await axios.get (`${apiUrl}/api/candidate/getAllCandidates`);
-      console.log(data);
       return data;
   }catch(error){
       throw error;
@@ -15,8 +12,6 @@ export const getAllCandidates = async () => {
 }
 
 export const getSingleCandidate = async (id) => {
-
-  console.log(apiUrl);
 
   try{
     const config = {
@@ -53,14 +48,10 @@ export const addCandidate = async ({ name, emailId, phone, reactJS, nodeJS, expe
       current_status: current_status,
     }
 
-    console.log(BODY);
-
     const response = await axios.post(
       `${apiUrl}/api/candidate/addCandidate`,
       BODY,
       config);
-
-    console.log(response);
 
   }catch(error){
     throw error;
@@ -90,8 +81,6 @@ export const updateCandidate = async ({ name, emailId, phone, reactJS, nodeJS, e
       BODY,
       config);
 
-    console.log(response);
-
   }catch(error){
     throw error;
   }
@@ -112,10 +101,7 @@ export const deleteCandidate = async (email) => {
       `${apiUrl}/api/candidate/deleteCandidate`,
       config);
 
-    console.log(response);
-
   }catch(error){
-    console.log(error);
     throw error;
   }
 }

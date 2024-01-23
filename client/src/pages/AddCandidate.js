@@ -29,15 +29,15 @@ const AddCandidate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-        console.log('Form data submitted:', formData);
-        const response = await addCandidate(formData);
-        console.log(response);
-        setNotificationColor("bg-green-500");
-        setNotificationMessage("Candidate Added Successfully!!");
-        setIsNotificationVisible(true);
-        history('/');
+      const response = await addCandidate(formData);
+      setNotificationColor("bg-green-500");
+      setNotificationMessage("Candidate Added Successfully!!");
+      setIsNotificationVisible(true);
+      history('/');
     }catch(error){
-        console.log(error);
+      setNotificationMessage("Failed to Save!");
+      setNotificationColor("bg-red-500");
+      setIsNotificationVisible(true);
     }
   };
 

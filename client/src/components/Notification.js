@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { NotificationContext } from '../Contexts/GlobalState';
 
 const Notification = () => {
@@ -9,9 +9,7 @@ const Notification = () => {
       // Automatically close the notification after 5 seconds
       handleClose();
     }, 5000);
-
-    console.log("isNotificationVisible:", isNotificationVisible);
-    console.log("notificationColor:", notificationColor);
+    
     return () => clearTimeout(timer);
   }, [isNotificationVisible]);
 
